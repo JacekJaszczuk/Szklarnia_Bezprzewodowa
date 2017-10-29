@@ -1,0 +1,2 @@
+# SLAVE_ESP8266
+W [Szklarnia_01](Szklarnia_01) znajduje się program dla środowiska Arduino IDE. Aby program dało się skompilować należy najpierw zainstalować port ESP8266 dla środowiska Arduino IDE. Więcej informacji o instalacji i korzystaniu z portu można znaleźć [tutaj](https://github.com/esp8266/Arduino).
