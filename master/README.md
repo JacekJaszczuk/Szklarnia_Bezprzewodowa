@@ -17,3 +17,10 @@ np:
 ```
 localhost:3000/data?id=1&value=3.1415
 ```
+
+#### Baza:
+W pliku `config.js` należy podać względną ścieżkę do pliku bazy sqlite3.
+```
+sqlite> CREATE TABLE slave (id integer primary key autoincrement, name_flower varchar(255));
+sqlite> CREATE TABLE measurement (id integer primary key autoincrement, slave_id int, measurement decimal(2, 1), timestamp datetime, FOREIGN KEY (slave_id) REFERENCES slave(id) );
+```
