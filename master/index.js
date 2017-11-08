@@ -33,11 +33,11 @@ var insertIntoDb = function(id, val) {
 
     let query;
 
-    if (id <= 0 || id > totalSlaves) {  // sqlite assigns indexes from 1
+    if (typeof(id) != 'number' || id <= 0 || id > totalSlaves) {  // sqlite assigns indexes from 1
         return console.error("Incorrect slave id.");
     }
 
-    if (val < 0 || val > 1023) {
+    if (typeof(val) != 'number' || val < 0 || val > 1023) {
         return console.error(`Incorrect value provided: ${val}. Must be non-negative and smaller than 1024.`);
     }
 
