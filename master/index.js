@@ -32,13 +32,15 @@ var db = new sqlite3.Database(config.dbPath, sqlite3.OPEN_READWRITE, (err) => {
 var insertIntoDb = function(id, val) {
 
     let query;
+    id = Number(id);
+    val = Number(val);
 
-    if (typeof(id) != 'number' || id <= 0 || id > totalSlaves) {  // sqlite assigns indexes from 1
-        return console.error("Incorrect slave id.");
+    if (id <= 0 || id > totalSlaves) {  // sqlite assigns indexes from 1
+        return console.error(`Incorrect slave id: ${id}.`);
     }
 
-    if (typeof(val) != 'number' || val < 0 || val > 1023) {
-        return console.error(`Incorrect value provided: ${val}. Must be non-negative and smaller than 1024.`);
+    if (val < 0 || val > 1023) {
+        return console.error(`Incorrect value provided: ${val}. Must be non-negative integer smaller than 1024.`);
     }
 
     val = (val / 1023) * 100;
@@ -61,8 +63,7 @@ app.get('/', (request, response) => {
 app.get('/data', (req, res) => {
     var id = req.query.id;
     var val = req.query.value;
-    var date = datetime.create().format('Y-m-d H:M:S');
-    insertIntoDb(id, val, date);
+    insertIntoDb(id, val);
     res.status(200).send();
 });
 
