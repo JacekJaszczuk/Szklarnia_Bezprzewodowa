@@ -8,7 +8,7 @@ const port = config.port;
 var totalSlaves = 0;
 
 var db = new sqlite3.Database(config.dbPath, sqlite3.OPEN_READWRITE, (err) => {
-    let query = `SELECT id, name_flower FROM slave;`;
+    let query = `SELECT idSlave, flower FROM Slave;`;
     
     if (err) {
         return console.error(err.message);
@@ -22,7 +22,7 @@ var db = new sqlite3.Database(config.dbPath, sqlite3.OPEN_READWRITE, (err) => {
         }
         console.log("Available flowers: ");
         rows.forEach(row => {
-            console.log(`${row.id}. ${row.name_flower}`);
+            console.log(`${row.idSlave}. ${row.flower}`);
             totalSlaves++;
         });
     });
@@ -44,7 +44,7 @@ var insertIntoDb = function(id, val) {
     }
 
     val = (val / 1023) * 100;
-    query = `INSERT INTO measurement (slave_id, measurement, timestamp) VALUES (${id}, ${val}, datetime());`;
+    query = `INSERT INTO Measurement (idSlave, measurement, date, time) VALUES (${id}, ${val}, date()), time();`;
     
     console.log(query);
 
