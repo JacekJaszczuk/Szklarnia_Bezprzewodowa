@@ -8,7 +8,7 @@ const port = config.port;
 var totalSlaves = 0;
 
 var db = new sqlite3.Database(config.dbPath, sqlite3.OPEN_READWRITE, (err) => {
-    let query = `SELECT idSlave, flower FROM Slave;`;
+    var query = `SELECT idSlave, flower FROM Slave;`;
     
     if (err) {
         return console.error(err.message);
@@ -31,7 +31,7 @@ var db = new sqlite3.Database(config.dbPath, sqlite3.OPEN_READWRITE, (err) => {
 
 var insertIntoDb = function(id, val) {
 
-    let query;
+    var query;
     id = Number(id);
     val = Number(val);
 
@@ -43,8 +43,8 @@ var insertIntoDb = function(id, val) {
         return console.error(`Incorrect value provided: ${val}. Must be non-negative integer smaller than 1024.`);
     }
 
-    val = (val / 1023) * 100;
-    query = `INSERT INTO Measurement (idSlave, measurement, date, time) VALUES (${id}, ${val}, date()), time();`;
+    val = 100 - (val / 1023) * 100;
+    query = `INSERT INTO Measurement (idSlave, measurment, date, time) VALUES (${id}, ${val}, date(), time());`;
     
     console.log(query);
 
