@@ -9,4 +9,5 @@ W katalogu znajdują się informacje na temat programu dla urządzenia SLAVE. Za
 * **[Testy](Testy)**  
 Ten katalog służy do testowania i nauki nowych rzeczy :D
 * **[App](APP)**
+
 W katalogu znajdują się informacje na temat programu pobierającego dane z bazy danych oraz wyświetlającego dane pomiarów.
