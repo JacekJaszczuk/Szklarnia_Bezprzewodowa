@@ -8,3 +8,5 @@ W katalogu znajdują się informacje na temat programu odbierającego dane od SL
 W katalogu znajdują się informacje na temat programu dla urządzenia SLAVE. Zadaniem tego programu jest przesłanie informacji z czujnika do urządzenia MASTER.  
 * **[Testy](Testy)**  
 Ten katalog służy do testowania i nauki nowych rzeczy :D
+* **[App](APP)**
+W katalogu znajdują się informacje na temat programu pobierającego dane z bazy danych oraz wyświetlającego dane pomiarów.
