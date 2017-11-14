@@ -5,6 +5,7 @@
 
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
+#include <EEPROM.h>
 #include <FS.h>
 
 // Funkcje do konfiguracji i działania w pętli:

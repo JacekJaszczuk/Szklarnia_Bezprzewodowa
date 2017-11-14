@@ -1,13 +1,13 @@
 #include "normal_mode.h"
 
 // Tu należy podać dane do punktu dostępowego WiFi:
-const char ssid[] = "dlink";
-const char password[] = "pingwin95";
+const char ssid[] = "UPC3758752";
+const char password[] = "ETPXYMPH";
 
 // Inne dane potrzebne do działania programu:
-uint8_t id = 7;        // ID urządzenia.
-char bufAdres[200];    // Bufor na stworzenie adresu dla HTTP.
-int getReturn = 0;     // Wartość zwracana przez metodę GET.
+static uint8_t id = 7;   // ID urządzenia.
+char bufAdres[200];      // Bufor na stworzenie adresu dla HTTP.
+int getReturn = 0;       // Wartość zwracana przez metodę GET.
 
 // FUNKCJE NIEPUBLICZNE:
 

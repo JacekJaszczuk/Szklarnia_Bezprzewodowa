@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tytuł strony - ciekawe czy działa :-)</title>
+	<meta name="generator" content="Bluefish 2.2.10" >
+	<meta name="author" content="Unknown" >
+	<meta name="date" content="2017-11-11T22:11:59+0100" >
+	<meta name="copyright" content="">
+	<meta name="keywords" content="Wyrazy kluczowe oddzielone przecinkiem, Lis, Tux, Pingwin">
+	<meta name="description" content="Zawartość strony">
+	<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+	<meta http-equiv="content-style-type" content="text/css">
+	<meta http-equiv="expires" content="0">
+</head>
+<body style="background-image: url(tapeta.jpg); background-repeat: no-repeat; background-position: left top; background-attachment: fixed;">
+	<h1>Formularz test</h1>
+	<!--<form action="http://127.0.0.1" method="get">-->
+	<form action="#" method="get">
+		<!-- Wartość pola "name" musi być unikatowa w obrębie formularza -->
+		<label>
+			<b>Nazwa sieci:</b><br>
+			<input type="text" name="Teksto" value="Tekstu">
+		</label>
+		<br>
+		<input type="text" name="Tekst" value="Ala ma kota">
+		<br>
+		<input type="submit" name="Przycisk" value="Wyślij">
+	</form>
+	<br>
+	<h2>Twoje dane to:</h2>
+	<script type="text/javascript">
+		var url_string = window.location.href;
+		// Obiekt URL:
+		var url = new URL(url_string);
+		document.write(url.searchParams.get("Tekst"));
+	</script>
+</body>
+</html>
