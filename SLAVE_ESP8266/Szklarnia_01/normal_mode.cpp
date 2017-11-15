@@ -15,7 +15,7 @@ int getReturn = 0;       // Wartość zwracana przez metodę GET.
 // FUNKCJE PUBLICZNE:
 
 void normalSetup()
-{
+{ 
   // Uruchom UART do debugowania:
   Serial.begin(9600);
   Serial.println("\nTRYB NORMALNY");
@@ -25,6 +25,10 @@ void normalSetup()
 
   // Odczytaj ID SLAVE'a z pamięci EEPROM (FLASH); jako parametr read należy przekazać indeks bajtu:
   id = EEPROM.read(0);
+
+  // Wyłącz WiFi - zerwij obecne połączenie (prawdopodobnie niepotrzebne):
+  //WiFi.persistent(false);
+  //WiFi.mode(WIFI_OFF);
 
   // Ustaw tryb STA (Tryb stacji) i wyłącz tryb AP (Tryb punktu dostępowego):
   WiFi.mode(WIFI_STA);
@@ -51,7 +55,7 @@ void normalLoop()
   HTTPClient http;
 
   // Odczytaj wartość z ADC i połącz z adresem MASTER:
-  sprintf(bufAdres, "http://192.168.0.162:3000/data?id=%d&value=%d", id, analogRead(0));
+  sprintf(bufAdres, "http://192.168.0.20:3000/data?id=%d&value=%d", id, analogRead(0));
   Serial.println(bufAdres);
 
   // Ustaw adres do którego zostanie wysłane zapytanie:
@@ -89,6 +93,15 @@ void normalLoop()
   // Zakończ połączenie HTTP:
   http.end();
 
-  delay(3000);
+  // Czekaj aktywnie 2 sekundy:
+  //delay(2000);
+
+  // Śpij przez 15 sekund:
+  // Należy połączyć GPIO16 z RST! Użyłem rezystora 5k.
+  // Połączenie jest potrzebne bo ESP nie umie się wewnętrznie zresetować.
+  // W tym trybie uśpienia działa licznik, który po osiągnieciu odpowiedniej
+  // wartości wyzwala pin GPIO16.
+  Serial.println("Idę spać :-)");
+  ESP.deepSleep(15000000, WAKE_RF_DEFAULT);
 }
 

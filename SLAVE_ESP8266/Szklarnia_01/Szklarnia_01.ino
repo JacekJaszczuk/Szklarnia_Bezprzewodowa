@@ -7,11 +7,11 @@ MODE mode;
 
 void setup()
 {
-  // Czekaj sekundę na stabilizację wszystkich układów:
-  delay(1000);
-  
   // Ustaw pin 5 jako wejście z podciąganiem Vcc:
   pinMode(5, INPUT_PULLUP);
+  
+  // Czekaj 200ms na stabilizację wszystkich układów:
+  delay(200);
 
   // Jeżeli na pinie 5 jest stan wysoki to ustaw tryb NORMALNY, a jak nie to KONFIGURACJI:
   if (digitalRead(5) == HIGH)

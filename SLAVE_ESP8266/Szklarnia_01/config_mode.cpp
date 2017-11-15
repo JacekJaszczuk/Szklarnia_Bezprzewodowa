@@ -30,6 +30,7 @@ void handleRoot()
   if (server.hasArg("ID_SLAVE"))
   {
     Serial.print("Zmiana adresu SLAVE\n");
+    
     // Pierwszy parametr: adres; drugi parametr: wartość.
     EEPROM.write(0, *(server.arg("ID_SLAVE").c_str()));
 
